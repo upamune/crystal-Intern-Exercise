@@ -1,0 +1,13 @@
+name: crystal-Intern-Exercise
+version: 0.1.0
+
+authors:
+  - upamune <jajkeqos@gmail.com>
+
+targets:
+  crystal-Intern-Exercise:
+    main: src/crystal-Intern-Exercise.cr
+
+crystal: 0.20.1
+
+license: MIT
