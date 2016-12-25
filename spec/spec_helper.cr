@@ -1,2 +1,2 @@
 require "spec"
-require "../src/crystal-Intern-Exercise"
+require "../src/crystal-Intern-Exercise/*"
