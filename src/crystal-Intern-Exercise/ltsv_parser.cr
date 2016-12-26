@@ -13,14 +13,20 @@ class LtsvParser
     parsed_line = line.split("\t").map { |l| l.split(":", 2) }.to_h
 
     begin
+      user_raw = parsed_line.fetch("user")
+      user = user_raw == "-" ? nil : user_raw
+
+      referer_raw = parsed_line.fetch("referer")
+      referer = referer_raw == "-" ? nil : referer_raw
+
       log = Log.new(
         host: parsed_line.fetch("host", ""),
-        user: parsed_line.fetch("user", nil),
+        user: user,
         epoch: parsed_line.fetch("epoch").to_i,
         req: parsed_line.fetch("req"),
         status: parsed_line.fetch("status").to_i,
         size: parsed_line.fetch("size").to_i,
-        referer: parsed_line.fetch("referer", nil)
+        referer: referer
       )
     rescue
       raise LtsvParseException.new(line)
